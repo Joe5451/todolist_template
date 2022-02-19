@@ -15,11 +15,12 @@
 	<base href="<?php //echo base_url(); ?>">
 
     <link rel="stylesheet" href="css/icons.css" />
+    <link rel="stylesheet" href="css/circular_progress_bar.css" />
     <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>" />
 
-    <script language="javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- <script src="js/circularProgressBar.js"></script> -->
     <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 <body>
 

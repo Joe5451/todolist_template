@@ -7,13 +7,13 @@
             <div class="todo_head">
                 <div class="todo_head_title">全部</div>
                 <div class="todo_header_btn_container">
-                    <button class="todo_head_btn active">待完成</button>
-                    <button class="todo_head_btn">完成</button>
-                    <button class="todo_head_btn">數據</button>
+                    <button class="todo_head_btn active" type="unfinished">待完成</button>
+                    <button class="todo_head_btn" type="finished">完成</button>
+                    <button class="todo_head_btn" type="data">數據</button>
                 </div>
             </div>
             <div class="todo_body">
-                <div class="todolist_container">
+                <div class="todolist_container hidden" id="unfinished_todo">
                     <div class="todolist_item">
                         <div class="todolist_item_category_tag">Side Project</div>
                         <div class="todolist_item_title">待辦 todolist side project 完成</div>
@@ -70,10 +70,140 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="todolist_container hidden" id="finished_todo">
+                    <div class="todolist_item">
+                        <div class="todolist_item_category_tag">Side Project</div>
+                        <div class="todolist_item_title">待辦 todolist side project 完成</div>
+                        <div class="todolist_item_content">完成 side project</div>
+                        <div class="todolist_item_btn_group">
+                            <button class="todolist_item_btn redo">
+                                <i class="fas fa-redo-alt"></i>
+                            </button>
+                            <button class="todolist_item_btn delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="todolist_item">
+                        <div class="todolist_item_category_tag">Side Project</div>
+                        <div class="todolist_item_title">待辦 todolist side project 完成</div>
+                        <div class="todolist_item_content">完成 side project</div>
+                        <div class="todolist_item_btn_group">
+                            <button class="todolist_item_btn redo">
+                                <i class="fas fa-redo-alt"></i>
+                            </button>
+                            <button class="todolist_item_btn delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="todolist_item">
+                        <div class="todolist_item_category_tag">Side Project</div>
+                        <div class="todolist_item_title">待辦 todolist side project 完成</div>
+                        <div class="todolist_item_content">完成 side project</div>
+                        <div class="todolist_item_btn_group">
+                            <button class="todolist_item_btn redo">
+                                <i class="fas fa-redo-alt"></i>
+                            </button>
+                            <button class="todolist_item_btn delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="todolist_item">
+                        <div class="todolist_item_category_tag">Side Project</div>
+                        <div class="todolist_item_title">待辦 todolist side project 完成</div>
+                        <div class="todolist_item_content">完成 side project</div>
+                        <div class="todolist_item_btn_group">
+                            <button class="todolist_item_btn redo">
+                                <i class="fas fa-redo-alt"></i>
+                            </button>
+                            <button class="todolist_item_btn delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="todo_data_container" id="todo_data">
+                    <div class="todo_data_content">
+                        <div class="todo_data_item">
+                            <div class="todo_data_item_title">總數：</div>
+                            <div class="todo_data_item_text">
+                                <span class="todo_data_number">20</span>  件
+                            </div>
+                        </div>
+                        <div class="todo_data_item">
+                            <div class="todo_data_item_title">完成：</div>
+                            <div class="todo_data_item_text">
+                                <span class="todo_data_number">12</span>  件
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="progress_container">
+                        <div id="progress" class="progress"></div>
+                    </div>
+
+                    <script>
+
+                        $('.todo_head_btn[type=data]').click(function() {
+                            startProgress('progress');
+                        });
+
+                        function startProgress(elementId) {
+                            const wrapper = document.getElementById(elementId);
+                            const barCount = 50;
+                            const percent1 = 50 * 60/100;
+                            wrapper.innerHTML = '';
+    
+                            for (let index = 0; index < barCount; index++) {
+                                const className = index < percent1 ? 'selected1' : '';
+                                wrapper.innerHTML += `<i style="--i: ${index};" class="${className}"></i>`;
+                            }
+    
+                            wrapper.innerHTML += `<p class="selected percent-text text1">60%</p>`
+                        }
+
+                    </script>
+
+
+                </div>
+                
             </div>
         </div>
-    
     </div>
 </div>
+
+<script>
+    $('.todo_head_btn').click(function() {
+        let type = $(this).attr('type');
+
+        $('.todo_head_btn').removeClass('active');
+        $(this).addClass('active');
+
+        $('.todolist_container').addClass('hidden');
+
+        switch(type)
+        {
+            case 'unfinished':
+                $('#unfinished_todo').removeClass('hidden');
+                break;
+            case 'finished':
+                $('#finished_todo').removeClass('hidden');
+                break;
+            case 'data':
+                $('#todo_data').removeClass('hidden');
+                break;
+            default:
+                break;
+        }
+    });
+</script>
 
 <?php include_once("components/foot.php"); ?>
