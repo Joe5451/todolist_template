@@ -1,6 +1,16 @@
 <?php include_once("components/head.php");  ?>
 
 <div class="container max-w-screen-lg px-4 py-8 mx-auto">
+    <div class="flex mb-5">
+        <button class="primary_btn mr-5" id="todo_add_btn">新增待辦 <i class="far fa-plus-square"></i></button>
+        <button class="primary_btn">新增標籤 <i class="fas fa-tags"></i></button>
+
+        <script>
+
+            
+        </script>
+    </div>
+    
     <div class="index_container rounded-lg">
 
         <div class="todo_container">
@@ -13,7 +23,7 @@
                 </div>
             </div>
             <div class="todo_body">
-                <div class="todolist_container hidden" id="unfinished_todo">
+                <div class="todolist_container" id="unfinished_todo">
                     <div class="todolist_item">
                         <div class="todolist_item_category_tag">Side Project</div>
                         <div class="todolist_item_title">待辦 todolist side project 完成</div>
@@ -129,7 +139,7 @@
                     </div>
                 </div>
 
-                <div class="todo_data_container" id="todo_data">
+                <div class="todo_data_container hidden" id="todo_data">
                     <div class="todo_data_content">
                         <div class="todo_data_item">
                             <div class="todo_data_item_title">總數：</div>
@@ -149,38 +159,26 @@
                     <div class="progress_container">
                         <div id="progress" class="progress"></div>
                     </div>
-
-                    <script>
-
-                        $('.todo_head_btn[type=data]').click(function() {
-                            startProgress('progress');
-                        });
-
-                        function startProgress(elementId) {
-                            const wrapper = document.getElementById(elementId);
-                            const barCount = 50;
-                            const percent1 = 50 * 60/100;
-                            wrapper.innerHTML = '';
-    
-                            for (let index = 0; index < barCount; index++) {
-                                const className = index < percent1 ? 'selected1' : '';
-                                wrapper.innerHTML += `<i style="--i: ${index};" class="${className}"></i>`;
-                            }
-    
-                            wrapper.innerHTML += `<p class="selected percent-text text1">60%</p>`
-                        }
-
-                    </script>
-
-
-                </div>
-                
+                </div>        
             </div>
         </div>
     </div>
 </div>
 
+<?php include_once("components/todo_popup.php");  ?>
+
+
 <script>
+    $('#todo_add_btn').click(function() {
+        $('#todo_popup').bPopup({
+            fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
+            followSpeed: 1500, //can be a string ('slow'/'fast') or int
+            positionStyle: 'fixed',
+            modal: true,
+            closeClass: 'popup_close_btn'
+        });
+    });
+    
     $('.todo_head_btn').click(function() {
         let type = $(this).attr('type');
 
@@ -188,6 +186,7 @@
         $(this).addClass('active');
 
         $('.todolist_container').addClass('hidden');
+        $('.todo_data_container').addClass('hidden');
 
         switch(type)
         {
@@ -199,11 +198,29 @@
                 break;
             case 'data':
                 $('#todo_data').removeClass('hidden');
+                startProgress('progress');
+
                 break;
             default:
                 break;
         }
     });
+
+    function startProgress(elementId) {
+        const wrapper = document.getElementById(elementId);
+        const barCount = 50;
+        const percent1 = 50 * 60/100;
+        wrapper.innerHTML = '';
+
+        for (let index = 0; index < barCount; index++) {
+            const className = index < percent1 ? 'selected1' : '';
+            wrapper.innerHTML += `<i style="--i: ${index};" class="${className}"></i>`;
+        }
+
+        wrapper.innerHTML += `<p class="selected percent-text text1">60%</p>`
+    }
 </script>
+
+
 
 <?php include_once("components/foot.php"); ?>

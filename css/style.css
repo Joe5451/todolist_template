@@ -12,7 +12,7 @@ body {
 }
 
 .main_nav_link {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	margin: 0 15px;
 	color: #625AC8;
 	font-weight: 700;
@@ -20,7 +20,27 @@ body {
 }
 
 .main_nav_link:hover {
-	color: #7266EE;
+	color: #7367f0;
+}
+
+/* 通用 */
+.primary_btn {
+	background: #31375A;
+	color: #7367f0;
+	padding: 5px 15px;
+	border-radius: 8px;
+	font-size: 18px;
+	transition: all 0.4s ease-in-out;
+}
+
+.primary_btn i {
+	margin-left: 5px;
+}
+
+.primary_btn:hover {
+	background: #7367f0;
+	color: #31375A;
+
 }
 
 /* 首頁 */
@@ -209,4 +229,99 @@ body {
 
 .progress_container {
 	padding: 20px;
+}
+
+/* 彈跳視窗 */
+.todo_popup {
+	background: #31375A;
+    border-radius: 8px;
+    display:none;
+    padding:20px 30px;
+	width: 80vw;
+	max-width: 480px;
+	position: relative;
+}
+
+.todo_popup_title {
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 15px;
+	color: #d0d2d6;
+	font-size: 24px;
+}
+
+.todo_form_group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+@media (max-width: 575px) {
+	.todo_form_group {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+.todo_form_label {
+	width: 80px;
+    margin-right: 15px;
+    color: #d0d2d6;
+    font-size: 20px;
+	text-align: right;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+@media (max-width: 575px) {
+	.todo_form_label {
+		margin-bottom: 10px;
+	}
+}
+
+.todo_form_control {
+	background: transparent;
+	border: 1px solid #d0d2d6;
+	border-radius: 5px;
+    padding: 5px 15px;
+	outline: none;
+	color: #d0d2d6;
+	width: 100%;
+}
+
+.todo_popup_btn_group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.todo_popup_btn {
+	/* color: #d0d2d6; */
+	/* background: #7367f0; */
+	background: rgba(0,207,232,.2);
+	color: #00cfe8;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 20px;
+	transition: all 0.4s ease-in-out;
+}
+
+.todo_popup_btn:hover {
+	background: rgba(0,207,232,.5);
+}
+
+.popup_close_btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 24px;
+    width: 36px;
+    height: 36px;
+    color: #171E30;
+	transition: all 0.4s ease-in-out;
+}
+
+.popup_close_btn:hover {
+	color: #ff9f43;
 }

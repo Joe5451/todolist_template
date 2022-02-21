@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>" />
 
     <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/jquery.bpopup.min.js"></script>
     <!-- <script src="js/circularProgressBar.js"></script> -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -26,9 +27,21 @@
 
 <header class="main_header px-5 py-3">
     <nav class="main_nav flex items-center justify-end">
-        <a href="" class="main_nav_link">首頁</a>
-        <a href="" class="main_nav_link">分類管理</a>
-        <a href="" class="main_nav_link">垃圾桶</a>
-        <a href="" class="main_nav_link">登出</a>
+        <a href="" class="main_nav_link">
+            <i class="fas fa-list"></i>
+            首頁
+        </a>
+        <a href="" class="main_nav_link">
+            <i class="fas fa-tags"></i>
+            標籤管理
+        </a>
+        <a href="" class="main_nav_link">
+            <i class="fas fa-trash-alt"></i>
+            垃圾桶
+        </a>
+        <a href="" class="main_nav_link">
+            <i class="fas fa-power-off"></i>
+            登出
+        </a>
     </nav>
 </header>
