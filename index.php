@@ -3,12 +3,7 @@
 <div class="container max-w-screen-lg px-4 py-8 mx-auto">
     <div class="flex mb-5">
         <button class="primary_btn mr-5" id="todo_add_btn">新增待辦 <i class="far fa-plus-square"></i></button>
-        <button class="primary_btn">新增標籤 <i class="fas fa-tags"></i></button>
-
-        <script>
-
-            
-        </script>
+        <button class="primary_btn" id="tag_add_btn">新增標籤 <i class="fas fa-tags"></i></button>
     </div>
     
     <div class="index_container rounded-lg">
@@ -165,20 +160,10 @@
     </div>
 </div>
 
-<?php include_once("components/todo_popup.php");  ?>
-
+<?php include_once("components/add_todo_popup.php");  ?>
+<?php include_once("components/add_tag_popup.php");  ?>
 
 <script>
-    $('#todo_add_btn').click(function() {
-        $('#todo_popup').bPopup({
-            fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
-            followSpeed: 1500, //can be a string ('slow'/'fast') or int
-            positionStyle: 'fixed',
-            modal: true,
-            closeClass: 'popup_close_btn'
-        });
-    });
-    
     $('.todo_head_btn').click(function() {
         let type = $(this).attr('type');
 
@@ -220,7 +205,5 @@
         wrapper.innerHTML += `<p class="selected percent-text text1">60%</p>`
     }
 </script>
-
-
 
 <?php include_once("components/foot.php"); ?>

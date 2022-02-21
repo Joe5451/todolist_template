@@ -16,22 +16,23 @@
 
     <link rel="stylesheet" href="css/icons.css" />
     <link rel="stylesheet" href="css/circular_progress_bar.css" />
+    <link rel="stylesheet" href="css/farbtastic.css" />
     <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>" />
 
     <script src="js/jquery-1.12.3.min.js"></script>
     <script src="js/jquery.bpopup.min.js"></script>
-    <!-- <script src="js/circularProgressBar.js"></script> -->
+    <script src="js/farbtastic.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
 <header class="main_header px-5 py-3">
     <nav class="main_nav flex items-center justify-end">
-        <a href="" class="main_nav_link">
+        <a href="index.php" class="main_nav_link">
             <i class="fas fa-list"></i>
             首頁
         </a>
-        <a href="" class="main_nav_link">
+        <a href="tag_list.php" class="main_nav_link">
             <i class="fas fa-tags"></i>
             標籤管理
         </a>

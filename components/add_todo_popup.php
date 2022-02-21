@@ -1,4 +1,4 @@
-<div id="todo_popup" class="todo_popup">
+<div id="add_todo_popup" class="todo_popup">
     <div class="todo_popup_title">新增待辦</div>
     
     <form>
@@ -21,9 +21,13 @@
 </div>
 
 <script>
-    //  $('#todo_popup').bPopup({
-    //     fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
-    //     followSpeed: 1500, //can be a string ('slow'/'fast') or int
-    //     modalColor: 'greenYellow'
-    // });
+    $('#todo_add_btn').click(function() {
+        $('#add_todo_popup').bPopup({
+            fadeSpeed: 'slow', //can be a string ('slow'/'fast') or int
+            followSpeed: 1500, //can be a string ('slow'/'fast') or int
+            positionStyle: 'fixed',
+            modal: true,
+            closeClass: 'popup_close_btn'
+        });
+    });
 </script>
