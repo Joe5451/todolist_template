@@ -4,11 +4,23 @@
 
 body {
 	background: #161E30;
+	padding-top: 50px;
 }
 
 /* 導覽列 */
 .main_header {
 	background: #283046;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.main_nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .main_nav_link {
@@ -19,8 +31,115 @@ body {
 	transition: all 0.4s ease-in-out;
 }
 
-.main_nav_link:hover {
-	color: #7367f0;
+.main_nav_link:hover,
+.main_nav_link.active {
+	color: #aba5e9;
+}
+
+@media (max-width: 575px) {
+	.main_header {
+		display: none !important;
+	}
+}
+
+/* 手機版選單 */
+.mobile_header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 100;
+	background: #31375A;
+	clip-path: circle(40px at 90% -10%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+}
+
+.mobile_header.show {
+	clip-path: circle(1000px at 90% -10%);
+    pointer-events: all;
+}
+
+@media (min-width: 575px) {
+	.mobile_header {
+		display: none !important;
+	}
+}
+
+.mobile_nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.mobile_nav_link {
+	color: #625AC8;
+	font-weight: 700;
+	transition: all 0.4s ease-in-out;
+	font-size: 24px;
+	margin-bottom: 40px;
+	width: 135px;
+}
+
+.mobile_nav_link:hover,
+.mobile_nav_link.active {
+	color: #aba5e9;
+}
+
+.mobile_nav_link i {
+	width: 30px;
+}
+
+/* 選單按鈕 */
+.menu_btn {
+	cursor: pointer;
+	background: #31375A;
+	position: fixed;
+	z-index: 200;
+	top: 15px;
+	right: 15px;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	box-shadow: 0 0px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 575px) {
+	.menu_btn {
+		display: none !important;
+	}
+}
+
+.menu_btn.active {
+	box-shadow: none;
+}
+
+.menu_btn_bar {
+	width: 30px;
+	height: 4px;
+	background-color: #aba5e9;
+	margin: 3px 0;
+	transition: 0.4s ease-in-out;
+	border-radius: 3px;
+}
+
+.menu_btn.active .menu_btn_bar1 {
+	transform: rotate(-45deg) translate(-6px, 6px);
+}
+  
+.menu_btn.active .menu_btn_bar2 {
+	opacity: 0;
+}
+
+.menu_btn.active .menu_btn_bar3 {
+	transform: rotate(45deg) translate(-8px, -9px);
 }
 
 /* 通用 */
