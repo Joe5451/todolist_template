@@ -36,7 +36,7 @@
             <i class="fas fa-tags"></i>
             標籤管理
         </a>
-        <a href="" class="main_nav_link">
+        <a href="trash.php" class="main_nav_link">
             <i class="fas fa-trash-alt"></i>
             垃圾桶
         </a>

@@ -125,6 +125,11 @@ body {
 	margin-bottom: 0;
 }
 
+.todolist_item.trash {
+	background: #fff;
+	opacity: 0.9;
+}
+
 .todolist_item_category_tag {
 	border-radius: 5px;
 	padding: 5px 10px;
@@ -136,9 +141,17 @@ body {
 	margin-bottom: 5px;
 }
 
+.todolist_item_category_tag.trash {
+	opacity: 0.8;
+}
+
 .todolist_item_title {
 	color: #7367f0;
 	font-size: 1.25rem;
+}
+
+.todolist_item_title.trash {
+	color: #C1C0BB;
 }
 
 .todolist_item_content {
@@ -148,6 +161,11 @@ body {
     border-radius: 8px;
     padding: 5px 10px;
     display: inline-block;
+}
+
+.todolist_item_content.trash {
+	background-color: #e5e7eb;
+	color: #C1C0BB;
 }
 
 .todolist_item_btn_group {
